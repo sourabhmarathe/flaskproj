@@ -1,5 +1,5 @@
 repos:
--   repo: https://github.com/sourabhmarathe/flaskproj
+-   repo: git@github.com:sourabhmarathe/flaskproj.git
     rev: v1.2.3
     hooks:
     -   id: flake8
