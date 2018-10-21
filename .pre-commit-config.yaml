@@ -1,0 +1,5 @@
+repos:
+-   repo: https://github.com/sourabhmarathe/flaskproj
+    rev: v1.2.3
+    hooks:
+    -   ...
