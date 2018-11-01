@@ -20,9 +20,4 @@ app.config['MAIL_USERNAME'] = os.environ.get('EMAIL_USER')
 app.config['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASS')
 mail = Mail(app)
 
-@app.before_first_request
-def create_tables():
-	from flaskapp.models import User, Post
-	db.create_all()
-
 from flaskapp import routes

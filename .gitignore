@@ -103,5 +103,8 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-# todo 
+# todo
 TODO
+
+# db
+flaskapp/site.db

@@ -9,6 +9,11 @@ from flask_login import login_user, current_user, logout_user, login_required
 from flask_mail import Message
 
 
+@app.before_first_request
+def create_tables():
+    db.create_all()
+
+
 @app.route("/")
 @app.route("/home")
 def home():
@@ -158,12 +163,12 @@ def user_posts(username):
 
 def send_reset_email(user):
     token = user.get_reset_token()
-    msg = Message('Password Reset Request', 
+    msg = Message('Password Reset Request',
         sender='noreply@flask.com', recipients=[user.email])
     msg.body = f'''To reset your password, visit the following link:
     {url_for('reset_token', token=token, _external=True)}
-    If you did not make this request, then simply ignore this email and no 
-    changes will be made. 
+    If you did not make this request, then simply ignore this email and no
+    changes will be made.
     '''
     mail.send_message(msg)
 
